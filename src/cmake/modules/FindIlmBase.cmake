@@ -20,6 +20,16 @@
 # ILMBASE_LIBRARIES   - list of libraries to link against when using IlmBase.
 # ILMBASE_FOUND       - True if IlmBase was found.
 
+if( NOT ILMBASE_CUSTOM )
+  # Try pkg-config first
+
+  pkg_check_modules( ILMBASE IlmBase )
+
+  if( ILMBASE_FOUND )
+  endif( ILMBASE_FOUND )
+
+endif( NOT ILMBASE_CUSTOM )
+
 # Other standarnd issue macros
 include (FindPackageHandleStandardArgs)
 include (FindPackageMessage)
